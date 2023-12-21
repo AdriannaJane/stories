@@ -78,12 +78,12 @@
 
 .front-side {
 
-    background-image: url('img/card-front.svg');
+    background-image: url('card-front.svg');
 }
 
 .back-side {
     max-width: 300px;
-    background-image: url('img/card-back.svg');
+    background-image: url('card-back.svg');
     transform: rotateY(180deg);
 }
 
