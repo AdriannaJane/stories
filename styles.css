@@ -5,8 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Montserrat', 'Helvetica', 'Avenir', 'Open Sans', 'Ariel', sans-serif;
-    background-color: #dff2f7;
+    font-family: 'Roboto Slab', serif;
+    background-color: #F2E5EA;
+    flex-direction: column;
+    letter-spacing: 1px;
 }
 
 .card-container {
@@ -19,10 +21,15 @@
 }
 
 .card {
+    display: none;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+}
+
+.card.active {
+    display: flex;
 }
 
 .card.flipped {
@@ -39,9 +46,10 @@
     backface-visibility: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
 }
+
 
 .front-side,
 .back-side {
@@ -55,36 +63,27 @@
     position: absolute;
     backface-visibility: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: flex-start;
     border-radius: 25px;
 }
 
-.front-side {
-    /* Adjust as needed for your card-front.svg */
-}
 
 .back-side {
     transform: rotateY(180deg);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 24px;
     padding: 20px;
     box-sizing: border-box;
     background-size: cover;
+    max-width: 300px;
+    background-image: url('img/card-plot.svg');
+    transform: rotateY(180deg);
 }
 
 .front-side {
-
-    background-image: url('card-front.svg');
-}
-
-.back-side {
-    max-width: 300px;
-    background-image: url('card-back.svg');
-    transform: rotateY(180deg);
+    background-image: url('img/card-back.svg');
 }
 
 .card.flipped {
@@ -92,6 +91,7 @@
 }
 
 button {
+    font-family: 'roboto slab', 'serif';
     padding: 10px 20px;
     border: none;
     background-color: #32405d;
@@ -99,8 +99,6 @@ button {
     cursor: pointer;
     border-radius: 25px;
     margin-top: 20px;
-    font-size: 16px;
-    font-family: Montserrat;
     font-size: 1.2em;
     font-weight: 800;
 }
@@ -109,12 +107,111 @@ button:hover {
     background-color: #3a89c4;
 }
 
-p {
-    color: #363587;
-    font-family: Montserrat;
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    padding: 16px;
+#plot-text {
+    padding-top: 140px;
 }
+
+h2 {
+    color: #420D26;
+    padding: 0;
+    font-size: 0.8em;
+    margin: 0;
+    text-align: left;
+    padding: 0px 16px;
+    padding-top: 140px;
+    padding-bottom: 8px;
+} 
+
+p {
+    color: #420D26;
+    font-size: 0.70em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 300px;
+    margin: 0;
+    padding: 0px 16px;
+    text-align: left;
+}
+
+.nav-dots {
+    width: 100%;
+}
+
+.nav-dots .dot {
+    height: 32px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: #B44E79;
+    border: 2px solid #B44E79;
+    background: none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.nav-dots .dot.active {
+    color: #FFF;
+    border-radius: 50px;
+    background: #B44E79;
+}
+
+
+/* BUTTONS BABY */
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #742449;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+button:hover {
+    background-color: #510b2e;
+    color: #fff;
+}
+
+#how-to-play {
+    background-color: transparent;
+    color: #742449;
+    border: 2px solid #742449;
+    /* Added border to match the style */
+}
+
+#how-to-play:hover {
+    color: #510b2e;
+    background-color: #ddafc6;
+    border-color: #510b2e;
+    /* Border color changes on hover */
+}
+
+#reset {
+    display: none;
+    background-color: #742449;
+    /* Match other buttons */
+    color: #fff;
+}
+
+#reset:hover {
+    background-color: #510b2e;
+    /* Hover effect like other buttons */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
