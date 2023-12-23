@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversation Cards</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="card-container" class="card-container">
-        <div class="card" id="card">
-            <div class="card-side front-side" id="front">
-            </div>
-            <div class="card-side back-side" id="back">
+        <div class="card" id="top-card">
+            <div class="card-side front-side"></div>
+            <div class="card-side back-side">
                 <p id="prompt"></p>
             </div>
         </div>
-        <button id="draw-card-button">Draw Card</button>
+        <div class="card" id="bottom-card">
+            <div class="card-side front-side"></div>
+            <div class="card-side back-side">
+                <p id="bottom-prompt"></p>
+            </div>
+        </div>
     </div>
+    <button id="draw-card-button">Draw Card</button>
     <script src="script.js"></script>
 </body>
+
 </html>
+
