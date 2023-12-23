@@ -1,3 +1,6 @@
+
+
+
 body,
 html {
     height: 100%;
@@ -12,7 +15,6 @@ html {
 
 .card-container {
     perspective: 1000px;
-    /* Adds depth to the 3D space */
     width: 300px;
     height: 420px;
     position: relative;
@@ -25,14 +27,11 @@ html {
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
-    /* Preserves 3D positioning */
     transition: transform 0.5s;
-    /* Smooth transition for flipping */
 }
 
 .card.flipped {
     transform: rotateY(180deg);
-    /* Flips the card to show the back */
 }
 
 .card-side {
@@ -47,7 +46,6 @@ html {
     flex-direction: column;
     border-radius: 25px;
     backface-visibility: hidden;
-    /* Hides the back face of the card */
 }
 
 .front-side,
@@ -65,7 +63,6 @@ html {
 .back-side {
     background-image: url('img/card-back.svg');
     transform: rotateY(180deg);
-    /* Positions the back side correctly */
 }
 
 #top-card {
