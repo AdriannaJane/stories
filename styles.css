@@ -8,34 +8,36 @@ html {
     font-family: 'Montserrat', sans-serif;
     background-color: #dff2f7;
     flex-direction: column;
-
 }
 
 .card-container {
     perspective: 1000px;
-    position: relative;
+    /* Adds depth to the 3D space */
     width: 300px;
     height: 420px;
+    position: relative;
     margin: 50px auto;
     text-align: center;
 }
 
 .card {
-    position: absolute;
     width: 100%;
     height: 100%;
+    position: absolute;
     transform-style: preserve-3d;
+    /* Preserves 3D positioning */
     transition: transform 0.5s;
+    /* Smooth transition for flipping */
 }
 
 .card.flipped {
     transform: rotateY(180deg);
+    /* Flips the card to show the back */
 }
 
 .card-side {
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -44,6 +46,8 @@ html {
     justify-content: center;
     flex-direction: column;
     border-radius: 25px;
+    backface-visibility: hidden;
+    /* Hides the back face of the card */
 }
 
 .front-side,
@@ -54,22 +58,14 @@ html {
     background-repeat: no-repeat;
 }
 
-.back-side {
-    transform: rotateY(180deg);
-    font-size: 24px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-size: cover;
-}
-
 .front-side {
     background-image: url('img/card-front.svg');
 }
 
 .back-side {
-    max-width: 300px;
     background-image: url('img/card-back.svg');
     transform: rotateY(180deg);
+    /* Positions the back side correctly */
 }
 
 #top-card {
@@ -88,8 +84,6 @@ button {
     cursor: pointer;
     border-radius: 25px;
     margin-top: 20px;
-    font-size: 16px;
-    font-family: Montserrat;
     font-size: 1.2em;
     font-weight: 800;
 }
