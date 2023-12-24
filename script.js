@@ -147,10 +147,10 @@
 //         loadNewPrompt(promptElement);
 //     }
 // });
-
 document.addEventListener('DOMContentLoaded', function () {
     const drawCardButton = document.getElementById('draw-card-button');
     const topCard = document.getElementById('top-card');
+    const bottomCard = document.getElementById('bottom-card'); // Reference to the bottom card
     const promptElement = document.getElementById('prompt');
     let seenPrompts = [];
     let prompts = []; // Array to store your prompts
@@ -167,16 +167,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to draw a new card
     function drawNewCard() {
         if (isFirstLoad) {
-            // Only flip the card on the first load
             flipCard();
             isFirstLoad = false;
+            bottomCard.style.display = 'none'; // Hide the bottom card after the first flip
         } else {
-            // Load next prompt without flipping if card is already flipped
-            if (topCard.classList.contains('flipped')) {
-                loadNextPrompt();
-            } else {
+            if (!topCard.classList.contains('flipped')) {
                 flipCard();
-                setTimeout(loadNextPrompt, 600); // Delay to load next prompt after flipping
+                setTimeout(loadNextPrompt, 600);
+            } else {
+                loadNextPrompt();
             }
         }
     }
