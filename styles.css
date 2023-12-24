@@ -1,6 +1,3 @@
-
-
-
 body,
 html {
     height: 100%;
@@ -11,21 +8,22 @@ html {
     font-family: 'Montserrat', sans-serif;
     background-color: #dff2f7;
     flex-direction: column;
+
 }
 
 .card-container {
     perspective: 1000px;
+    position: relative;
     width: 300px;
     height: 420px;
-    position: relative;
     margin: 50px auto;
     text-align: center;
 }
 
 .card {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
     transform-style: preserve-3d;
     transition: transform 0.5s;
 }
@@ -37,6 +35,7 @@ html {
 .card-side {
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -45,7 +44,6 @@ html {
     justify-content: center;
     flex-direction: column;
     border-radius: 25px;
-    backface-visibility: hidden;
 }
 
 .front-side,
@@ -56,11 +54,20 @@ html {
     background-repeat: no-repeat;
 }
 
+.back-side {
+    transform: rotateY(180deg);
+    font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-size: cover;
+}
+
 .front-side {
     background-image: url('img/card-front.svg');
 }
 
 .back-side {
+    max-width: 300px;
     background-image: url('img/card-back.svg');
     transform: rotateY(180deg);
 }
@@ -81,6 +88,8 @@ button {
     cursor: pointer;
     border-radius: 25px;
     margin-top: 20px;
+    font-size: 16px;
+    font-family: Montserrat;
     font-size: 1.2em;
     font-weight: 800;
 }
@@ -92,17 +101,9 @@ button:hover {
 p {
     color: #363587;
     font-family: Montserrat;
-    font-size: 0.75em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
     padding: 16px;
-}
-
-#top-card {
-    z-index: 2;
-}
-
-#bottom-card {
-    z-index: 1;
 }
